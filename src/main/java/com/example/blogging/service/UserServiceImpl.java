@@ -14,7 +14,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -44,16 +43,16 @@ public class UserServiceImpl implements UserService {
     public User save(UserRegistrationDto registrationDto) {
         registrationDto.setActivationCode(UUID.randomUUID());
         User user = new User(registrationDto.getFirstName(), registrationDto.getLastName(), registrationDto.getEmail(),
-                passwordEncoder.encode(registrationDto.getPassword()),Arrays.asList(new Role("ROLE_USER")),registrationDto.getActivationCode());
+                passwordEncoder.encode(registrationDto.getPassword()), Arrays.asList(new Role("ROLE_USER")), registrationDto.getActivationCode());
 
 
-        SimpleMailMessage message=new SimpleMailMessage();
+        SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(user.getMail());
         message.setSubject("subject");
         message.setText(user.getActivationCode().toString());
-            String messege=registrationDto.getActivationCode().toString();
+        String messege = "Hello. That's your link for activation account   http://localhost:8080/activate/"+user.getActivationCode();
 
-               mailSender.sendTo(user.getMail(),"activation code",messege);
+        mailSender.sendTo(user.getMail(), "activation code", messege);
 
         return userRepository.save(user);
     }
@@ -71,5 +70,17 @@ public class UserServiceImpl implements UserService {
 
     private Collection<? extends GrantedAuthority> mapRolesToAuthorrities(Collection<Role> roles) {
         return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
+    }
+
+    public boolean activateUser(String code) {
+        User user = userRepository.findByActivationCode(code);
+
+        if (user == null) {
+            return false;
+        }
+        user.setActivationCode(null);
+        user.setActive(true);
+        userRepository.save(user);
+        return true;
     }
 }

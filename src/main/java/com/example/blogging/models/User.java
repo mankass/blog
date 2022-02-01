@@ -36,9 +36,17 @@ private void genrator(User user){
         user.setActivationCode(UUID.randomUUID());
 }
 
-
+private boolean active;
     private String email;
     private String password;
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
 
     public UUID getActivationCode() {
         return activationCode;

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.UUID;
 
 @Component
-public class MailSender {
+public class MailSender  {
 
     @Autowired
     private JavaMailSender mailSender;
@@ -25,7 +25,7 @@ public class MailSender {
        mailMessage.setSubject(subject);
        mailMessage.setText(message);
 
-
+mailSender.send(mailMessage);
 
    }
 
