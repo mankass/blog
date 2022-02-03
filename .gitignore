@@ -28,6 +28,8 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 /src/templates
+/src/application.properties
+.re
 
 ### NetBeans ###
 /nbproject/private/
