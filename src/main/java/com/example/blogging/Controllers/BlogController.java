@@ -28,6 +28,11 @@ public class BlogController {
         return "blog-main";
     }
 
+    @GetMapping("/chat")
+    public String  chat(Model model){
+        return "chat";
+    }
+
     @GetMapping("/blog/add")
     public String blogadd(Model model) {
         return "blog-add";
