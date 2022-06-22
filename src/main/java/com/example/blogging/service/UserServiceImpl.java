@@ -50,7 +50,7 @@ public class UserServiceImpl implements UserService {
         message.setTo(user.getMail());
         message.setSubject("subject");
         message.setText(user.getActivationCode().toString());
-        String messege = "Hello. That's your link for activation account   http://localhost:8080/activate/"+user.getActivationCode();
+        String messege = "Hello. That's your link for activation account   http://localhost:8080/registration/activate/" + user.getActivationCode();
 
         mailSender.sendTo(user.getMail(), "activation code", messege);
 

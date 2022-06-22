@@ -7,7 +7,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 public interface UserService extends UserDetailsService {
     User save(UserRegistrationDto registrationDto);
 
-
-   public boolean activateUser(String code);
+    boolean activateUser(String code);
 
 }

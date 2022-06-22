@@ -12,11 +12,18 @@ repositories {
     mavenCentral()
     maven { url 'https://repo.spring.io/milestone' }
 }
+ext {
+    set('springBootAdminVersion', "2.6.2")
+}
+
 
 dependencies {
+ //   implementation 'org.springframework.boot:spring-boot-starter-actuator'
+  //  implementation 'de.codecentric:spring-boot-admin-starter-server'
+   // implementation 'org.springframework.kafka:spring-kafka'
+
     implementation group: 'org.thymeleaf', name: 'thymeleaf', version: '3.0.14.RELEASE'
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-mail', version: '2.6.3'
-
     implementation group: 'org.webjars', name: 'webjars-locator-core', version: '0.48'
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-oauth2-client'
     implementation group: 'org.springframework.security.oauth.boot', name: 'spring-security-oauth2-autoconfigure', version: '2.6.2'
@@ -32,14 +39,25 @@ dependencies {
     implementation group: 'jakarta.mail', name: 'jakarta.mail-api', version: '2.0.1'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+  //  implementation 'de.codecentric:spring-boot-admin-starter-client'
+    implementation group: 'org.springframework', name: 'spring-webflux', version: '5.2.22.RELEASE'
+
 
 
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
-
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.kafka:spring-kafka-test'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
 
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "de.codecentric:spring-boot-admin-dependencies:${springBootAdminVersion}"
+    }
 }
 
 test {

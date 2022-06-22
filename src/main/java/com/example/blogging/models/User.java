@@ -8,12 +8,12 @@ import java.util.UUID;
 
 
 @Entity
-@Table(name = "user",uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Table(name = "user", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private  Long id;
+    private Long id;
 
     @Column(name = "first_name")
     private String firstName;
@@ -32,11 +32,11 @@ public class User {
     }
 
 
-private void genrator(User user){
+    private void genrator(User user) {
         user.setActivationCode(UUID.randomUUID());
-}
+    }
 
-private boolean active;
+    private boolean active;
     private String email;
     private String password;
 
@@ -61,16 +61,16 @@ private boolean active;
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(
-                    name = "user_id",referencedColumnName = "id"),
+                    name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(
-                    name = "role_id",referencedColumnName = "id"))
+                    name = "role_id", referencedColumnName = "id"))
     private Collection<Role> roles;
 
-    public User(String firstName, String lastName, String mail, String password, Collection<Role> roles,UUID activationCode) {
+    public User(String firstName, String lastName, String mail, String password, Collection<Role> roles, UUID activationCode) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = mail;
-        this.activationCode=activationCode;
+        this.activationCode = activationCode;
         this.password = password;
         this.roles = roles;
     }

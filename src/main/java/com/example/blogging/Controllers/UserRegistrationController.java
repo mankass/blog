@@ -1,6 +1,7 @@
 package com.example.blogging.Controllers;
 
 
+import com.example.blogging.models.Post;
 import com.example.blogging.service.UserService;
 import com.example.blogging.service.UserServiceImpl;
 import org.springframework.stereotype.Controller;
@@ -37,14 +38,19 @@ public class UserRegistrationController {
 
 
     @GetMapping("/activate/{code}")
-    public String activate(Model model, @PathVariable String code){
-        boolean isActivated=userServiceImpl.activateUser(code);
+    public String activate(Model model, @PathVariable String code) {
 
-        if(isActivated){
-            model.addAttribute("message","User active");
-        }else
-            model.addAttribute("message","User not active");
 
-        return "redirect:/";
+        boolean isActivated = userServiceImpl.activateUser(code);
+
+
+        if (isActivated) {
+            model.addAttribute("message", "User active");
+        } else
+            model.addAttribute("message", "User not active");
+
+        return "/";
     }
+
+
 }
