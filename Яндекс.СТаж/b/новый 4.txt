@@ -1,0 +1,121 @@
+//Что будет выведено в консоль при выполнении метода?
+//Какие наблюдения можешь рассказать по этому примеру кода?
+
+summ_nums() {
+        int[] nums = {1, 2, 3};
+        for ( int x = 0; x < nums.length; x++ ) {
+        x += nums[x];
+        }
+        System.out.println(x);
+}
+
+//Какой будет результат выполнения метода main?
+
+public abstract class AbstractClass {
+
+    public AbstractClass() {
+        System.out.println("I am abstract!");
+    }
+}
+
+class DemoClass extends AbstractClass {
+
+    public DemoClass() {
+        System.out.println("I am demo!");
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        DemoClass demoClass = new DemoClass();
+    }
+	
+
+class Main {
+    public static void main(String[] args) {
+
+        var stringList = new ArrayList<String>();
+        stringList.add("one");
+        stringList.add("one and a half");
+        stringList.add("two");
+        stringList.add("two and a half");
+        stringList.add("three and a half");
+
+        System.out.println("Before " + stringList);
+
+        for (var next : stringList) {
+            if (next.equals("two and a half")) {
+                stringList.add("three");
+            }
+        }
+        System.out.println("After " + stringList);
+    }
+}package ru.some.project.component.wmq;
+
+import com.ibm.mq.MQDestination;
+import com.ibm.mq.MQException;
+import com.ibm.mq.MQQueueManager;
+import java.util.concurrent.Callable;
+
+public class AccessQueueWorker implements Callable<MQDestination> {
+
+    private int accessMode;
+    private String queueName;
+    private MQQueueManager queueManager;
+    private MQException exception;
+
+    public AccessQueueWorker(MQQueueManager manager, String queue, int mode) {
+        setQueueManager(manager);
+        setQueueName(queue);
+        setAccessMode(mode);
+        setException(null);
+    }
+
+    public void setAccessMode(int accessMode) {
+        this.accessMode = accessMode;
+    }
+
+    public void setQueueName(String queueName) {
+        this.queueName = queueName;
+    }
+
+    public void setQueueManager(MQQueueManager queueManager) {
+        this.queueManager = queueManager;
+    }
+
+    public MQException getException() {
+        return exception;
+    }
+
+    public void setException(MQException exception) {
+        this.exception = exception;
+    }
+
+    @Override
+    public MQDestination call(int timeout) throws MQException {
+        try{
+            return queueManager.accessQueue(queueName, accessMode, timeout);
+        }
+        catch (MQException mqe) {
+            setException(mqe);
+            throw mqe;
+        }
+    }
+	Чем отличается JVM и JDK?
+Чем отличается ArrayList от LinkedList?
+Чем отличается Set от HashMap?
+Чем статический метод отличается от нестатического?
+Чем отличается абстрактный класс от интерфейсе?
+Как работает блок finally и try-with-resources?
+Чем отличается поток от процесса?
+Чем отличается коммит от пуша?
+Надо добавить в новый проект две строки кода: какая последовательность git команд тебе потребуется?
+Какие знаешь этапы жизненного цикла задачи?
+Какие знаешь протоколы прикладного уровня?
+Чем отличается HTTP от HTTPS?
+Какие знаешь форматы данных и с какими из них работал?
+Чем помогает использование фреймворков?
+Чем отличается паттерн фабрика от паттерна билдера?
+Зачем нужно код-ревью?
+Чем отличается docker-образ от docker-контейнера?
+Назови топ3 айтишных форумов / каналов / сайтов

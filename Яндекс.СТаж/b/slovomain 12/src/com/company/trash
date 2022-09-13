@@ -1,0 +1,17 @@
+for (int i = 0; i <= numbers.size()-3; i++) {
+            if (numbers.get(i) == numbers.get(i + 1) && numbers.get(i) == numbers.get(i + 2)) {
+                for (int j = i + 3; j < numbers.size(); j++) {
+                    if (numbers.get(i + 2) == numbers.get(j)) numbers.remove(j);
+                    else break;
+                }
+             //   List<Object>sublist= numbers.subList(i,i+3);
+                numbers.subList(i,i+3).clear();
+                i=0;
+            }
+
+        }
+        System.out.println(numbers.toString());
+
+
+
+        List<Integer> numbers = streamTokenizerWithDefaultConfiguration();

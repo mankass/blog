@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+<title> title</title>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+
+<div class="wrapper">
+    <header>
+        <p class="start"> Старт программы 20 января 2022 </p>
+
+        <nav>
+            <ul class="menu">
+                <li class="navigation"><a href="#"> О нас </a></li>
+                <li class="navigation"><a href="#"> Наши контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1 class="title"> beeinterns</h1>
+        <nav>
+            <ul class="nav-menu-container">
+                <li class="nav-menu--list"><a class="nav-menu" href="#"> Главная</a></li>
+                <li class="nav-menu--list"><a class="nav-menu" href="#">О нас</a></li>
+                <li class="nav-menu--list"><a class="nav-menu" href="#">Наши курсы</a></li>
+                <li class="nav-menu--list"><a class="nav-menu" href="#">Что нового</a></li>
+                <li class="nav-menu--list"><a class="nav-menu" href="#">Начать обучение</a></li>
+                <li class="nav-menu--list"><a class="nav-menu" href="#">Контакты</a></li>
+            </ul>
+        </nav>
+        <h1 class="heading">Ваш заголовок</h1>
+        <p class="description">Ваш текст страницы</p>
+
+
+        <ul class="big-pictures">
+            <li class="big-picture-man">
+                <picture class="man-picture">
+                    <source srcset="img/Big-1-400.png" media="(max-width: 399px)">
+                    <source srcset="img/Big-1-600.png" media="(max-width: 599px)">
+                    <img src="img/Big-1-800.png" alt="мужчина в осеннем лесу" class="picture">
+                </picture>
+            </li>
+
+            <li class="big-picture-women">
+                <picture class="women-picture">
+                    <source srcset="img/Big-2-400.png" media="(max-width: 399px)">
+                    <source srcset="img/Big-2-600.png" media="(max-width: 599px)">
+                    <img src="img/Big-2-800.png" alt="девушка в кедах" class="picture">
+                </picture>
+            </li>
+        </ul>
+        <ul class="small-picture-container">
+            <li class="small-picture-list"><img src="img/Small-01.png" alt="мост"></li>
+            <li class="small-picture-list"><img src="img/Small-02.png" alt="здание"></li>
+            <li class="small-picture-list"><img src="img/Small-03.png" alt="лестница"></li>
+            <li class="small-picture-list"><img src="img/Small-04.png" alt="плющ"></li>
+        </ul>
+    </main>
+</div>
+<footer>
+    <p class="footer"> Раздел, расположенный под  основным текстом или телом</p>
+</footer>
+</body>
+</html>
